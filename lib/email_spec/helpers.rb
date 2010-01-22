@@ -38,8 +38,12 @@ module EmailSpec
     end
 
     def current_email(address=nil)
-      address = convert_address(address)
-      email = address ? email_spec_hash[:current_emails][address] : email_spec_hash[:current_email]
+      email = if address.nil? && email_spec_hash[:current_email]
+        email_spec_hash[:current_email]
+      else
+        address = convert_address(address)
+        email_spec_hash[:current_emails][address]
+      end
       raise Spec::Expectations::ExpectationNotMetError, "Expected an open email but none was found. Did you forget to call open_email?" unless email
       email
     end
