@@ -15,7 +15,7 @@ begin
     s.description  = s.summary
     s.require_path = "lib"
     s.files        = %w(History.txt install.rb MIT-LICENSE.txt README.rdoc Rakefile) + Dir["lib/**/*"] + Dir["rails_generators/**/*"]
-    s.test_files   = (Dir["spec/**/*"] + Dir["examples/**/*"]).reject {|filename| File.directory?(filename) }
+    # s.test_files   = (Dir["spec/**/*"] + Dir["examples/**/*"]).reject {|filename| File.directory?(filename) }
     # rdoc
     s.has_rdoc         = true
     s.extra_rdoc_files = %w(README.rdoc MIT-LICENSE.txt)
